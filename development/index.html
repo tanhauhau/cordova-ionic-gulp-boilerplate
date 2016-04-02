@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'
+                          'unsafe-inline'
+                          'unsafe-eval'
+                          https://hihobbies.s3.amazonaws.com
+                          127.0.0.1:*
+                          http://localhost:*
+                          ws://localhost:*
+                          filesystem:
+                          http://*.firebaseio.com
+                          https://*.firebaseio.com
+                          wss://*.firebaseio.com
+                          https://auth.firebase.com
+                          http://128.199.79.134:4000
+                          http://128.199.79.134:8080
+                          gap:
+                          ;">
+    <title>Hi</title>
+
+
+
+    <!-- bower:css -->
+    <!-- endbower -->
+
+    <!-- inject:css -->
+    <!-- endinject -->
+
+<!--
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+ -->
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+  </head>
+  <body>
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <!-- <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar> -->
+
+
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <div>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+    </div>
+
+    <!-- ionic/angularjs js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+
+    <!-- inject:js -->
+    <!-- endinject -->
+
+    <script>
+        //Bootstrap the app
+        if(typeof cordova === "undefined"){
+            //no cordova, running on web
+            angular.bootstrap(document, ['app']);
+        }else{
+            document.addEventListener('deviceready', function() {
+                angular.bootstrap(document, ['app']);
+            }, false);
+        }
+    </script>
+  </body>
+</html>
