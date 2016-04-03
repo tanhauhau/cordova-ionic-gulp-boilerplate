@@ -13,10 +13,10 @@ angular.module('app',
      'app.config',
      'app.storage',
 
-     'app.util.encrypt.aes',
+     'app.encrypt.aes',
      //3rd party libraries
      'ImgCache',
-
+     'underscore',
     ])
 
 .run(function($ionicPlatform, ImgCache) {
@@ -45,11 +45,11 @@ angular.module('app',
             }
         }
     });
-    Auth.onAuth(function(authData){
-        if (!authData) {
-            $state.go('login');
-        }
-    });
+    // Auth.onAuth(function(authData){
+    //     if (!authData) {
+    //         $state.go('login');
+    //     }
+    // });
 })
 .config(['$ionicConfigProvider', function($ionicConfigProvider) {
     $ionicConfigProvider.tabs.position('bottom'); // other values: top

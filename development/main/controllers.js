@@ -7,17 +7,17 @@ angular.module('app.controllers', [
     'app.controllers.list',
 ]);
 
-angular.module('app.controllers.explore')
+angular.module('app.controllers.explore', [])
 .controller('exploreCtrl', function($scope) {
 
 });
 
-angular.module('app.controllers.calendar')
+angular.module('app.controllers.calendar', [])
 .controller('calendarCtrl', function($scope) {
 
 });
 
-angular.module('app.controllers.list')
+angular.module('app.controllers.list', [])
 .controller('listCtrl', function($scope) {
 
 });

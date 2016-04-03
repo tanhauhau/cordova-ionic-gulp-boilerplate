@@ -1,4 +1,4 @@
-angular.module('app.controllers.login')
+angular.module('app.controllers.login', [])
 .controller('LoginController', function($scope) {
 
 });
