@@ -1,5 +1,5 @@
 angular.module('app.routes', [])
-.config(function($stateProvider, $urlRouterProvider, DEFAULT_STATE) {
+.config(function($stateProvider, $urlRouterProvider, DEFAULT_URL) {
     $stateProvider
     .state('signup', {
         url: '/signup',
@@ -44,11 +44,10 @@ angular.module('app.routes', [])
     ;
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise(function($injector, $location){
-        var $state = $injector.get("$state");
         var Auth = $injector.get("Auth");
         if(Auth.isAuth()){
             if(Auth.verified()){
-                return DEFAULT_STATE;
+                return DEFAULT_URL;
             }else{
                 return 'verify';
             }
