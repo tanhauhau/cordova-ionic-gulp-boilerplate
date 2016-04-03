@@ -106,16 +106,16 @@ gulp.task('copy:vendor:other', function(cb) {
 gulp.task('copy:vendor', ['copy:vendor:js', 'copy:vendor:other']);
 
 gulp.task('copy:html', function(cb){
-    // var uglifyTask = lazypipe()
-    //     .pipe($.htmlmin, {collapseWhitespace: true, removeComments: true})
-    //     .pipe($.angularTemplatecache, { module: 'app' })
-    //     .pipe($.uglify, {mangle: false})
-    //     .pipe($.concat, "template.min.js");
-    // var uglifyIf = $.if(isProduction, uglifyTask().on('error', function(e){
-    //     console.log(e);
-    // }));
+    var uglifyTask = lazypipe()
+        .pipe($.htmlmin, {collapseWhitespace: true, removeComments: true})
+        .pipe($.angularTemplatecache, { module: 'app' })
+        .pipe($.uglify, {mangle: false})
+        .pipe($.concat, "template.min.js");
+    var uglifyIf = $.if(isProduction, uglifyTask().on('error', function(e){
+        console.log(e);
+    }));
     return gulp.src(paths.html)
-        // .pipe(uglifyIf)
+        .pipe(uglifyIf)
         .pipe(gulp.dest('./www'));
 });
 
