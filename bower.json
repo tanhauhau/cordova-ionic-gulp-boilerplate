@@ -1,15 +1,15 @@
 {
-  "name": "HelloIonic",
+  "name": "tls_event",
   "private": "true",
   "devDependencies": {
+  },
+  "dependencies": {
+    "imgcache.js": "^1.0.0",
+    "angular-imgcache": "angular-imgcache.js#^1.0.0",
     "ionic": "driftyco/ionic-bower#1.2.4",
     "ngCordova": "~0.1.20-alpha",
     "angular-moment": "~0.10.3",
     "jquery": "~2.1.4"
-  },
-  "dependencies": {
-    "imgcache.js": "^1.0.0",
-    "angular-imgcache": "angular-imgcache.js#^1.0.0"
   },
   "resolutions": {
     "angular": ">= 1.2.23"
