@@ -1,20 +1,11 @@
 angular.module('app.controllers', [
     'app.controllers.signup',
     'app.controllers.login',
+    'app.controllers.tab',
     'app.controllers.explore',
     'app.controllers.calendar',
     'app.controllers.list',
 ]);
-
-angular.module('app.controllers.signup')
-.controller('signupCtrl', function($scope) {
-
-});
-
-angular.module('app.controllers.login')
-.controller('loginCtrl', function($scope) {
-
-});
 
 angular.module('app.controllers.explore')
 .controller('exploreCtrl', function($scope) {
