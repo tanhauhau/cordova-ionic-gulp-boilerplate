@@ -15,7 +15,7 @@ angular.module('app.routes', [])
         url: '/tab',
         abstract: true,
         controller: 'TabController',
-        templateUrl: 'templates/tabsController.html',
+        templateUrl: 'tab/tabs.html',
     })
     .state('tabs.explore', {
         url: '/explore',
