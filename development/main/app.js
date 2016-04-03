@@ -7,16 +7,16 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app',
     ['ionic',
+     'app.config',
      'app.controllers',
      'app.routes',
      'app.auth',
-     'app.config',
      'app.storage',
-
      'app.encrypt.aes',
      //3rd party libraries
      'ImgCache',
      'underscore',
+     'ngMessages',
     ])
 
 .run(function($ionicPlatform, ImgCache) {
@@ -35,7 +35,7 @@ angular.module('app',
         ImgCache.$init();
     });
 })
-.run(function($rootScope, $state, Auth){
+.run(function($rootScope, $state, Auth, DEFAULT_STATE){
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, fromState, fromParams){
         if (next.needAuthenticate) {
             if(!Auth.isAuth()){
@@ -45,11 +45,13 @@ angular.module('app',
             }
         }
     });
-    // Auth.onAuth(function(authData){
-    //     if (!authData) {
-    //         $state.go('login');
-    //     }
-    // });
+    Auth.onAuth(function(authData){
+        if (!authData) {
+            $state.go('login');
+        }else{
+            $state.go(DEFAULT_STATE);
+        }
+    });
 })
 .config(['$ionicConfigProvider', function($ionicConfigProvider) {
     $ionicConfigProvider.tabs.position('bottom'); // other values: top

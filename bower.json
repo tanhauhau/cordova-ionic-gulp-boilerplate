@@ -10,7 +10,8 @@
     "angular-moment": "~0.10.3",
     "jquery": "~2.1.4",
     "underscore": "^1.8.3",
-    "angular-underscore-module": "^1.0.3"
+    "angular-underscore-module": "^1.0.3",
+    "angular-messages": "^1.5.3"
   },
   "resolutions": {
     "angular": ">= 1.2.23"

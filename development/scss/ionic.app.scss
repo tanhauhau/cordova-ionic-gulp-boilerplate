@@ -20,3 +20,11 @@ $ionicons-font-path: "../../bower_components/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "../../bower_components/ionic/scss/ionic";
+
+//platform specific
+.platform-android .hide-android{
+    display: none;
+}
+.platform-ios .hide-ios{
+    display: none;
+}
