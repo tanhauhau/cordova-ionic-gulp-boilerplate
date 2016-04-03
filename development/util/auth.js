@@ -32,22 +32,26 @@ angular.module('app.auth', ['app.storage', 'underscore'])
                 Auth.auth.verified = !!auth.verified;
             }
             saveAuth(Auth.auth);
+
+            for (var i = 0; i < Auth._cb.length; i++) {
+                Auth._cb[i](Auth.auth);
+            }
         };
         Auth.logout = function(){
             Auth.setAuth();
         };
         Auth.username = function(){
             return Auth.auth.username;
-        }
+        };
         Auth.uid = function(){
             return Auth.auth.id;
-        }
+        };
         Auth.email = function(){
             return Auth.auth.email;
-        }
+        };
         Auth.token = function(){
             return Auth.auth.token;
-        }
+        };
         Auth.profilePic = function(val){
             if(arguments.length == 1){
                 Auth.auth.pic = val;
@@ -55,7 +59,7 @@ angular.module('app.auth', ['app.storage', 'underscore'])
             }else{
                 return Auth.auth.pic || 'img/icon_profilePic.png';
             }
-        }
+        };
         Auth.verified = function(val){
             if(arguments.length == 1){
                 Auth.auth.verified = val;
@@ -63,6 +67,10 @@ angular.module('app.auth', ['app.storage', 'underscore'])
             }else{
                 return Auth.auth.verified || false;
             }
+        };
+        Auth._cb = [];
+        Auth.onAuth = function(cb){
+            Auth._cb.push(cb);
         }
         return Auth;
     });

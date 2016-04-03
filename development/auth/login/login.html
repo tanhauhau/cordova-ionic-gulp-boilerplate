@@ -1,19 +1,36 @@
-<ion-view title="Login" id="page8">
+<ion-view title="Login">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <form class="list">
+        <form class="list" name='loginForm'>
             <ion-list>
                 <label class="item item-input">
-                    <span class="input-label">Username</span>
-                    <input type="text" placeholder="">
+                    <span class="input-label">Email</span>
+                    <input type="email"
+                        name="email"
+                        ng-model="user.email"
+                        placeholder="Email"
+                        required>
                 </label>
+                <div ng-messages="loginForm.email.$error">
+                    <p ng-message="email">Incorrect email format.</p>
+                </div>
                 <label class="item item-input">
                     <span class="input-label">Password</span>
-                    <input type="password" placeholder="">
+                    <input type="password"
+                            name="password"
+                            placeholder="Password"
+                            ng-model="user.password"
+                            ng-minlength="5"
+                            ng-maxlength="20"
+                            required>
                 </label>
+                <div ng-messages="loginForm.password.$error">
+                    <p ng-message="minlength">Password should be more than 5 characters.</p>
+                    <p ng-message="maxlength">Password should be less than 20 characters.</p>
+                </div>
             </ion-list>
             <div class="spacer" style="height: 40px;"></div>
-            <button id="login-button8" class="button button-stable  button-block">Log in</button>
-            <a href="#" ui-sref="signup" id="login-button9" class="button button-positive  button-block button-clear">Or create an account</a>
+            <button id="login-button" class="button button-stable button-block" ng-click="login(user.email, user.password)">Log in</button>
+            <a href="#" ui-sref="signup" class="button button-positive button-block button-clear">Or create an account</a>
         </form>
     </ion-content>
 </ion-view>

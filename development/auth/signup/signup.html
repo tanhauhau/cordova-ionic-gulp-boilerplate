@@ -1,21 +1,59 @@
 <ion-view title="Signup">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <form class="list">
+        <form class="list" name="signupForm">
             <ion-list>
                 <label class="item item-input">
-                    <span class="input-label">Name</span>
-                    <input type="text" placeholder="">
-                </label>
-                <label class="item item-input">
                     <span class="input-label">Username</span>
-                    <input type="text" placeholder="">
+                    <input type="text"
+                        placeholder="Username"
+                        name="username"
+                        ng-model="user.username"
+                        ng-minlength="5"
+                        ng-maxlength="20"
+                        required>
                 </label>
+                <div ng-messages="signupForm.username.$error">
+                    <p ng-message="minlength">Username should more than 5 characters.</p>
+                    <p ng-message="maxlength">Username should less than 20 characters.</p>
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">Email Address</span>
+                    <input type="email"
+                            name="email"
+                            placeholder="Email Address"
+                            ng-model="user.email"
+                            required>
+                </label>
+                <div ng-messages="signupForm.email.$error">
+                    <p ng-message="email">Incorrect email format.</p>
+                </div>
                 <label class="item item-input">
                     <span class="input-label">Password</span>
-                    <input type="text" placeholder="">
+                    <input type="password"
+                            name="password"
+                            placeholder="Password"
+                            ng-model="user.password"
+                            ng-minlength="5"
+                            ng-maxlength="20"
+                            required>
                 </label>
+                <div ng-messages="signupForm.password.$error">
+                    <p ng-message="minlength">Password should be more than 5 characters.</p>
+                    <p ng-message="maxlength">Password should be less than 20 characters.</p>
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">Retype Password</span>
+                    <input type="password"
+                            name="repassword"
+                            placeholder="Retype Password"
+                            ng-compareto="user.password"
+                            required>
+                </label>
+                <div ng-messages="signupForm.repassword.$error">
+                    <p ng-message="compareto">Should retype the same password.</p>
+                </div>
             </ion-list>
-            <button id="signup-button7" class="button button-stable  button-block">Sign up</button>
+            <button id="signup-button" ng-click="signup(user.email, user.password, user.username)" class="button button-stable button-block">Sign up</button>
         </form>
     </ion-content>
 </ion-view>
