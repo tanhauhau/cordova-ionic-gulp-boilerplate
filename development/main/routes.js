@@ -1,5 +1,5 @@
 angular.module('app.routes', [])
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, DEFAULT_STATE) {
     $stateProvider
     .state('signup', {
         url: '/signup',
@@ -48,7 +48,7 @@ angular.module('app.routes', [])
         var Auth = $injector.get("Auth");
         if(Auth.isAuth()){
             if(Auth.verified()){
-                return 'tab.feed';
+                return DEFAULT_STATE;
             }else{
                 return 'verify';
             }
