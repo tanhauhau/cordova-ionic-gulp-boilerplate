@@ -1,2 +1,3 @@
 angular.module('app.config', [])
-.constant('API_SERVER', 'http://128.199.79.134:8080/api/')
+.constant('API_SERVER', '')
+.constant('DEFAULT_STATE', 'tabs.explore');
