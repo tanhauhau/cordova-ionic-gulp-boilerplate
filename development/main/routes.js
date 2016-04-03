@@ -4,7 +4,7 @@ angular.module('app.routes', [])
     .state('signup', {
         url: '/signup',
         controller: 'SignupController',
-        templateUrl: 'templates/signup.html'
+        templateUrl: 'auth/signup/signup.html'
     })
     .state('login', {
         url: '/login',
