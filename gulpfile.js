@@ -33,7 +33,7 @@ var wiredepConfig = {
     devDependencies: true,
 };
 
-var isProduction = true;
+var isProduction = false;
 
 gulp.task('clean', function(cb){
     cleandir('./www', cb);
@@ -53,7 +53,7 @@ gulp.task('copy:sass', function(done) {
     .pipe($.sass({
       errLogToConsole: true
     }))
-    .pipe($.minifyCss({
+    .pipe($.cleanCss({
       keepSpecialComments: 0
     }))
     .pipe($.rename({ extname: '.min.css' }))
@@ -63,7 +63,7 @@ gulp.task('copy:sass', function(done) {
 
 gulp.task('copy:css', function(cb) {
     var minifyTask = lazypipe()
-        .pipe($.minifyCss, { keepSpecialComments: 0, rebase: true, target: './development/' })
+        .pipe($.cleanCss, { keepSpecialComments: 0, rebase: true, target: './development/' })
         .pipe($.concat, 'app.css');
     var minifyIf = $.if(isProduction, minifyTask().on('error', function(e){
         console.log(e);
